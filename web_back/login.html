@@ -30,4 +30,37 @@
         </div>
     </div>
 </body>
+
+<!-- 需求 -->
+<!-- 将输入的登录名密码与后台数据作比较，一致则跳转到index页面 -->
+<script src="js/jquery-1.12.4.min.js"></script>
+
+
+<script>
+
+    //获取输入框的内容
+
+
+</script>
+
+
+<script>
+
+    //获取后台数据
+
+    $('#btn').on('click', function () {
+        var userName = $('#username').val().trim();
+        var passWord = $('#password').val().trim();
+        $.post('http://192.168.1.6:8000/admin/login',
+        { user_name: userName, password: passWord }).then(function (res) {
+            if(res.code == 400){
+                alert('用户名密码错误')
+            }
+            else{
+                window.location.href = 'index.html';
+            }
+        })
+    })
+</script>
+
 </html>
